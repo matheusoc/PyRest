@@ -52,4 +52,4 @@ def logout():
         return 'not logged'
 
 if __name__ == '__main__':
-    app.run(host='192.168.1.3', debug=True)
+    app.run(debug=True)
