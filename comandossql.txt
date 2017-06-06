@@ -1,0 +1,17 @@
+insert into produto (nomeProduto) values ("Batata Frita");
+
+insert into orders (Order_idProduto, Order_idUser) 
+values (2, 2);
+
+select * from orders;
+select * from produto;
+
+select nomeProduto from produto where idProduto in (select Order_idProduto from orders 
+where Order_idUser = 1);
+
+select nomeProduto, nameUser from produto, user where idProduto in (select Order_idProduto from orders 
+where Order_idUser = 1) and idUser = 1;
+
+Select nomeProduto, nameUser from produto 
+inner join orders on idProduto = Order_idProduto 
+inner join user on idUser= Order_idUser;
