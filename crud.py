@@ -52,10 +52,3 @@ def take_user(cursor):
     for row in cursor:
         user = utils.user_to_json(row)
         return user
-'''
-if __name__ == '__main__':
-    user = select_user_byID('3')
-    for row in user:
-        u = to_json.user_to_json(row)
-        print u['user_id']
-'''

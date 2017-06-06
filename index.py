@@ -4,8 +4,10 @@
 from flask import Flask, request
 import crud
 import json
+from Hello import testing
 
 app = Flask(__name__)
+app.register_blueprint(testing)
 
 session = []
 
