@@ -27,11 +27,13 @@ def login():
     global session
     for i in session:
         if i == user['user_id']:
-            return "{'status': 'alogged'}"
+            if data['password'] == user['password']:
+                return "{'status': 'alogged'}"
+            session.remove(user['user_id'])
 
     if request.method == 'POST':
         if user is None:
-            error = 'Invalid username'
+            error = "{'status':'Invalid username'}"
         elif not (data['password'] == user['password']):
             error = "{'status':'invalid password'}"
         else:
