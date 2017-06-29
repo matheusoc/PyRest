@@ -53,7 +53,7 @@ def logout():
                 return "{status:'logged out'}"
             except ValueError:
                 print 'Not at the list'
-        return "{status:'not logged'}
+        return "{status:'not logged'}"
 
 if __name__ == '__main__':
     app.run(debug=True)
