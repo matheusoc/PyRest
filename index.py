@@ -50,10 +50,10 @@ def logout():
         if len(session) > 0:
             try:
                 session.remove(user['user_id'])
-                return 'logged out'
+                return "{status:'logged out'}"
             except ValueError:
                 print 'Not at the list'
-        return 'not logged'
+        return "{status:'not logged'}
 
 if __name__ == '__main__':
     app.run(debug=True)
