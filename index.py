@@ -27,17 +27,17 @@ def login():
     global session
     for i in session:
         if i == user['user_id']:
-            return 'alogged'
+            return {'status': 'alogged'}
 
     if request.method == 'POST':
         if user is None:
             error = 'Invalid username'
         elif not (data['password'] == user['password']):
-            error = 'invalid password'
+            error = {'status','invalid password'}
         else:
             session.append(user['user_id'])
-            return 'logged'
-    return 'Error to login: ' + error
+            return {'status': 'logged'}
+    return error
 
 @app.route('/logout', methods=['POST'])
 def logout():
