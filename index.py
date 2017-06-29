@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# -*- coding: utf-8 -*-
+#coding=utf-8
 
 from flask import Flask, request
 import crud
@@ -33,9 +33,9 @@ def login():
 
     if request.method == 'POST':
         if user is None:
-            error = "{'status':'Invalid username'}"
+            error = "{'status':'Usuário incorreto'}"
         elif not (data['password'] == user['password']):
-            error = "{'status':'invalid password'}"
+            error = "{'status':'Senha incorreta'}"
         else:
             session.append(user['user_id'])
             return "{'status': 'logged'}"
