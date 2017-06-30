@@ -24,6 +24,7 @@ def login():
     """Logs the user in."""
     data = json.loads(request.data.decode())
     user = crud.select_user_byName(data['user'])
+    print user
     global session
     for i in session:
         if i == user['user_id']:
@@ -38,7 +39,7 @@ def login():
             error = "{'status':'Senha incorreta'}"
         else:
             session.append(user['user_id'])
-            return "{'status': 'logged'}"
+            return str({"status": "logged","id": user['user_id']})
     return error
 
 @app.route('/logout', methods=['POST'])
